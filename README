@@ -1,0 +1,12 @@
+2012-Jan-09 Taylor Brockman
+
+Note: Project is not yet fully fucntional! This version contains only a maven build skeleton to provide easy .war packaging and jetty/tomcat deployments.
+I have just packaged the Mule example Echo service for testing purposes.
+
+To use:
+
+$ mvn
+# This will maven build, then start Jetty
+
+http://localhost:8090/MuleWarSoapLoggingProxy/services/EchoUMO?wsdl
+

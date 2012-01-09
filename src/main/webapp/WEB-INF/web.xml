@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+
+    <display-name>MuleWarSoapLoggingProxy</display-name>
+    <description>MuleWarSoapLoggingProxy : Skeleton Project for Creating Mule Soap Logging Proxies Deployed under War (Tomcat, Jetty)</description>
+
+    <context-param>
+        <param-name>org.mule.config</param-name>
+        <param-value>mule-config.xml</param-value>
+    </context-param>
+
+
+    <!--
+        To use a Mule XML configuration file use this context listener
+    -->
+    <listener>
+        <listener-class>org.mule.config.builders.MuleXmlBuilderContextListener</listener-class>
+    </listener>
+
+	<!--
+	Bind the Servlet Connector to the mule-config.xml servlet:inbound-endpoint
+     The implementation was migrated to:  mule-transport-servlet-3.2.0.jar in mule3.2
+    -->
+	<servlet>
+	  <servlet-name>muleServlet</servlet-name>
+	  <servlet-class>org.mule.transport.servlet.MuleReceiverServlet</servlet-class>
+	  <load-on-startup/>
+	</servlet>
+
+	<servlet-mapping>
+	  <servlet-name>muleServlet</servlet-name>
+	  <url-pattern>/services/*</url-pattern>
+	</servlet-mapping>
+
+</web-app>
